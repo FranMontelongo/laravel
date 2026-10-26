@@ -1,3 +1,4 @@
+
 name: deploy
 
 on:
@@ -14,9 +15,9 @@ jobs:
       - name: Deploy
         uses: appleboy/ssh-action@v1.2.5
         with:
-          host: 200.234.232.137
-          port: 2222
-          username: Fran
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.PRIVATE_KEY }}
           script: |
             set -eu
